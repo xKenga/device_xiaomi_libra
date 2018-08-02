@@ -24,3 +24,6 @@ PRODUCT_NAME := lineage_libra
 BOARD_VENDOR := Xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=libra
+
+# Unofficial build ID
+TARGET_UNOFFICIAL_BUILD_ID := Kenga
