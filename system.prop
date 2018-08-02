@@ -109,6 +109,7 @@ persist.data.mode=concurrent
 persist.data.netmgrd.qos.enable=true
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
+persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
 # Override hw_mbn file location
 persist.radio.app_hw_mbn_path=/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/MSM8994/LA
