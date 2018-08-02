@@ -170,3 +170,7 @@ echo 5 > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo "14746,18432,22118,25805,33038,41988" > /sys/module/lowmemorykiller/parameters/minfree
 echo 1 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 echo 81250 > /sys/module/lowmemorykiller/parameters/vmpressure_file_min
+
+# Fuck the YOTA
+# Use kernel feature
+su -c iptables -t mangle -A POSTROUTING -j TTL --ttl-set 64
