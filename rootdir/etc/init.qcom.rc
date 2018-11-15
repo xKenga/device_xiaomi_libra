@@ -192,9 +192,6 @@ on boot
     #doubletap to wake
     chown system system /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input1/wake_gesture
 
-    #edge gesture
-    chown system system /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input1/edge_mode
-
     #keydisabler
     chown system system /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input1/0dbutton
 
@@ -352,7 +349,7 @@ on post-fs-data
     chown system graphics /sys/class/graphics/fb1/ad
     chmod 0664 /sys/class/graphics/fb1/ad
 
-service perfd /system/vendor/bin/perfd
+service perfd /vendor/bin/perfd
    class main
    user root
    disabled
@@ -374,7 +371,7 @@ on property:bluetooth.isEnabled=true
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
-service cnd /system/vendor/bin/cnd
+service cnd /vendor/bin/cnd
     class main
     socket cnd stream 660 root inet
     writepid /dev/cpuset/system-background/tasks
@@ -448,7 +445,7 @@ service ipacm /vendor/bin/ipacm
     group net_admin inet
     writepid /dev/cpuset/system-background/tasks
 
-service qti /system/vendor/bin/qti
+service qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw diag usb net_admin
@@ -493,13 +490,13 @@ on property:crypto.driver.load=1
      insmod /system/lib/modules/qce.ko
      insmod /system/lib/modules/qcedev.ko
 
-service qcom-sh /system/vendor/bin/init.qcom.sh
+service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     seclabel u:r:qti_init_shell:s0
     oneshot
 
-service qcom-post-boot /system/vendor/bin/init.qcom.post_boot.sh
+service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
     class late_start
     user root
     seclabel u:r:qti_init_shell:s0
@@ -513,7 +510,7 @@ on property:ro.data.large_tcp_window_size=true
     # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
     write /proc/sys/net/ipv4/tcp_adv_win_scale  2
 
-service ril-daemon2 /system/vendor/bin/hw/rild -c 2
+service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
@@ -536,7 +533,7 @@ on property:sys.qbcharger.enable=true
 on property:sys.qbcharger.enable=false
     stop qbcharger
     
-service msm_irqbalance /vendor/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+service msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
     socket msm_irqbalance seqpacket 660 root system
     class core
     user root

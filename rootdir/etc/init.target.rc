@@ -135,7 +135,7 @@ on property:init.svc.per_mgr=running
 on property:sys.shutdown.requested=*
     stop per_proxy
 
-service thermal-engine /system/vendor/bin/thermal-engine -T
+service thermal-engine /vendor/bin/thermal-engine -T
     class main
     user root
     socket thermal-send-client stream 0666 system system
@@ -189,12 +189,6 @@ service imscmservice /vendor/bin/imscmservice
     group radio diag inet log
     writepid /dev/cpuset/system-background/tasks
 
-service ppd /vendor/bin/mm-pp-daemon
-    class late_start
-    user system
-    socket pps stream 0660 system system
-    group system graphics
-
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
@@ -210,9 +204,3 @@ service readmac /vendor/bin/readmac
     group radio oem_2950 log net_raw wifi
     seclabel u:r:readmac:s0
     oneshot
-
-service fidodaemon /system/vendor/bin/fidodaemon
-    class late_start
-    user system
-    group system
-
