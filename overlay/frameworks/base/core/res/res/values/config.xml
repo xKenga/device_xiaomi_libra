@@ -220,17 +220,6 @@
         <item>"bt-pan"</item>
     </string-array>
 
-    <!-- Array of allowable ConnectivityManager network types for tethering -->
-    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
-         [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
-    <integer-array translatable="false" name="config_tether_upstream_types">
-        <item>0</item>
-        <item>1</item>
-        <item>4</item>
-        <item>5</item>
-        <item>7</item>
-    </integer-array>
-
     <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true -->
     <bool translatable="false" name="skip_restoring_network_selection">true</bool>
@@ -355,13 +344,13 @@
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
         <item>"/system/framework/arm64/boot-framework.oat"</item>
-        <item>"/system/framework/arm64/boot-framework.vdex"</item>
+        <item>"/system/framework/boot-framework.vdex"</item>
         <item>"/system/framework/oat/arm64/services.odex"</item>
         <item>"/system/framework/oat/arm64/services.vdex"</item>
         <item>"/system/framework/arm64/boot.oat"</item>
-        <item>"/system/framework/arm64/boot.vdex"</item>
+        <item>"/system/framework/boot.vdex"</item>
         <item>"/system/framework/arm64/boot-core-libart.oat"</item>
-        <item>"/system/framework/arm64/boot-core-libart.vdex"</item>
+        <item>"/system/framework/boot-core-libart.vdex"</item>
         <item>"/data/dalvik-cache/arm64/system@framework@boot.oat"</item>
         <item>"/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex"</item>
     </string-array>

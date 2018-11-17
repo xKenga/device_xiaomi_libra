@@ -25,7 +25,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a53
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
@@ -42,9 +42,6 @@ TARGET_BOARD_SUFFIX := _64
 BOOTLOADER_PLATFORM := msm8994
 
 TARGET_CPU_SMP := true
-
-# ANT+
-BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -70,6 +67,7 @@ AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
+    /system/vendor/lib/hw/camera.vendor.msm8992.so|libshim_camera.so \
     /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /system/vendor/lib64/liblowi_wifihal_nl.so|libshims_is_wifi_driver_loaded.so \
     /system/vendor/lib64/lib-imsvt.so|libshims_ims.so
@@ -91,6 +89,8 @@ BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_CAMERASERVICE_CLOSES_NATIVE_HANDLES := true
 TARGET_NEEDS_LEGACY_CAMERA_HAL1_DYN_NATIVE_HANDLE := true
+TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
+    /system/vendor/bin/mm-qcamera-daemon=24
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -130,6 +130,9 @@ TARGET_NO_RPC := true
 USE_DEVICE_SPECIFIC_GPS := true
 USE_DEVICE_SPECIFIC_LOC_API := true
 
+# Gralloc
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
+
 # Headers
 TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 
@@ -159,8 +162,7 @@ TARGET_PROVIDES_KEYMASTER := true
 TARGET_PROVIDES_LIBLIGHT := true
 
 # Lineage Hardware
-BOARD_HARDWARE_CLASS += \
-    $(DEVICE_PATH)/lineagehw
+JAVA_SOURCE_OVERLAYS := org.lineageos.hardware|$(DEVICE_PATH)/lineagehw|**/*.java
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
@@ -177,7 +179,7 @@ TARGET_PER_MGR_ENABLED := true
 TARGET_EXFAT_DRIVER := exfat
 
 # Power
-TARGET_HAS_NO_WIFI_STATS := true
+TARGET_HAS_NO_WLAN_STATS := true
 TARGET_USES_INTERACTION_BOOST := true
 
 # Properties
@@ -203,8 +205,7 @@ TARGET_RIL_VARIANT := caf
 FEATURE_QCRIL_UIM_SAP_SERVER_MODE := true
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
-include device/qcom/sepolicy/legacy-sepolicy.mk
+include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
 
 # Vendor init

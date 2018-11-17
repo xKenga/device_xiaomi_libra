@@ -39,15 +39,6 @@ $(call inherit-product-if-exists, vendor/xiaomi/libra/libra-vendor.mk)
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
-# ANT+
-PRODUCT_PACKAGES += \
-    com.dsi.ant.antradio_library \
-    AntHalService \
-    libantradio
-
-PRODUCT_COPY_FILES += \
-    external/ant-wireless/antradio-library/com.dsi.ant.antradio_library.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.dsi.ant.antradio_library.xml
-
 # Audio
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \
@@ -95,6 +86,7 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
 PRODUCT_COPY_FILES += \
@@ -106,6 +98,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     camera.device@1.0-impl \
     libshim_atomic \
+    libshim_camera \
     camera.msm8992 \
     Snap
 
@@ -141,6 +134,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.mapper@2.0-impl \
     android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
     android.hardware.renderscript@1.0-impl
 
 PRODUCT_COPY_FILES += \
@@ -151,13 +145,15 @@ PRODUCT_COPY_FILES += \
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 # GPS
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
+    android.hardware.gnss@1.0-service \
     libshims_get_process_name \
-    libshims_is_wifi_driver_loaded \
-    android.hardware.gnss@1.0-impl
+    libshims_is_wifi_driver_loaded
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:system/etc/flp.conf \
@@ -215,7 +211,8 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl
+    android.hardware.keymaster@3.0-impl \
+    android.hardware.keymaster@3.0-service
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -262,7 +259,7 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti
+    android.hardware.power@1.1-service-qti
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf \
@@ -286,7 +283,7 @@ PRODUCT_PACKAGES += \
     sensors.msm8992
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensor_diag.cfg:system/etc/sensor_diag.cfg
+    $(LOCAL_PATH)/configs/sensor_diag.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/sensor_diag.cfg
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -316,7 +313,7 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
+    android.hardware.usb@1.0-service.basic
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \

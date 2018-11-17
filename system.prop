@@ -52,6 +52,7 @@ ro.bluetooth.hfp.ver=1.6
 
 # Display
 debug.composition.type=c2d
+debug.hwui.use_buffer_age=false
 debug.egl.hw=1
 debug.mdpcomp.logs=0
 debug.sf.hw=1
