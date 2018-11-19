@@ -31,7 +31,6 @@ use.voice.path.for.pcm.voip=true
 
 # Bluetooth
 bluetooth.enable_timeout_ms=12000
-qcom.bluetooth.soc=rome
 ro.bluetooth.emb_wp_mode=true
 ro.bluetooth.wipower=true
 ro.btconfig.chip=QCA6164
@@ -49,6 +48,7 @@ ro.bluetooth.sap=true
 ro.bluetooth.dun=true
 ro.qualcomm.bluetooth.map=true
 ro.bluetooth.hfp.ver=1.6
+vendor.qcom.bluetooth.soc=rome
 
 # Display
 debug.composition.type=c2d
