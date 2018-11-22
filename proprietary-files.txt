@@ -59,7 +59,7 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
-lib/hw/camera.msm8992.so:vendor/lib/hw/camera.vendor.msm8992.so|9c3b70e59eaeb0668d29a38889e410a7ded4a3ba
+vendor/lib/hw/camera.vendor.msm8992.so|9c3b70e59eaeb0668d29a38889e410a7ded4a3ba
 lib/libmm-qcamera.so:vendor/lib/libmm-qcamera.so
 lib/libmmcamera_interface.so:vendor/lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so:vendor/lib/libmmjpeg_interface.so
@@ -299,9 +299,9 @@ vendor/lib/libmmcamera_s5k3m2xm.so
 vendor/lib/libmmcamera_s5k3m2xm_ofilm.so
 
 # CNE
-etc/permissions/com.quicinc.cne.xml:vendor/etc/permissions/com.quicinc.cne.xml|bd1e5321176d9c10411a942743d976fb80418319
-framework/com.quicinc.cne.api-V1.0-java.jar:vendor/framework/com.quicinc.cne.api-V1.0-java.jar|6fb1bf2ea642ce0f0c8c4716639cab7a9810cc3e
-framework/com.quicinc.cne.jar:vendor/framework/com.quicinc.cne.jar|88fc21cd7dd69ae37607a9a671d4913d82c2e336
+vendor/etc/permissions/com.quicinc.cne.xml|bd1e5321176d9c10411a942743d976fb80418319
+vendor/framework/com.quicinc.cne.api-V1.0-java.jar|6fb1bf2ea642ce0f0c8c4716639cab7a9810cc3e
+vendor/framework/com.quicinc.cne.jar|88fc21cd7dd69ae37607a9a671d4913d82c2e336
 vendor/bin/cnd|fc7ad0d8041e35df029531ad6b5e972fdbfbfbc3
 -vendor/lib/com.quicinc.cne.api@1.0.so|60dd6f1fa0c70523f91342b07be6c82e733cdb90
 -vendor/lib/com.quicinc.cne.constants@1.0.so|0d3b2fd95e8ea3525467d8ca38865ac2a9d3f4c7
@@ -352,10 +352,10 @@ bin/loc_launcher:vendor/bin/loc_launcher
 bin/lowi-server:vendor/bin/lowi-server
 bin/xtwifi-client:vendor/bin/xtwifi-client
 bin/xtwifi-inet-agent:vendor/bin/xtwifi-inet-agent
-etc/permissions/com.qti.location.sdk.xml:vendor/etc/permissions/com.qti.location.sdk.xml|0b0fa5ed38c2136cfc4d09f0fbed2e912919f5d4
-etc/permissions/com.qualcomm.location.vzw_library.xml:vendor/etc/permissions/com.qualcomm.location.vzw_library.xml|5f88385b05e16ca4f17fb2857ea2bfb7370e2225
-etc/permissions/com.qualcomm.location.xml:vendor/etc/permissions/com.qualcomm.location.xml|ee15154d1727abb16a14d89eb5e7fdc252a93f05
-etc/permissions/izat.xt.srv.xml:vendor/etc/permissions/izat.xt.srv.xml|01f64eaadadddaedca2414e09f16129256ac298e
+vendor/etc/permissions/com.qti.location.sdk.xml|0b0fa5ed38c2136cfc4d09f0fbed2e912919f5d4
+vendor/etc/permissions/com.qualcomm.location.vzw_library.xml|5f88385b05e16ca4f17fb2857ea2bfb7370e2225
+vendor/etc/permissions/com.qualcomm.location.xml|ee15154d1727abb16a14d89eb5e7fdc252a93f05
+vendor/etc/permissions/izat.xt.srv.xml|01f64eaadadddaedca2414e09f16129256ac298e
 -framework/com.qti.location.sdk.jar:vendor/framework/com.qti.location.sdk.jar
 -framework/com.qualcomm.location.vzw_library.jar:vendor/framework/com.qualcomm.location.vzw_library.jar
 -framework/izat.xt.srv.jar:vendor/framework/izat.xt.srv.jar
@@ -567,7 +567,7 @@ vendor/lib64/libssd.so
 
 # Qualcomm framework
 bin/mmbn-daemon:vendor/bin/mmbn-daemon
-etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
+vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
 -lib/libqminvapi.so:vendor/lib/libqminvapi.so
 -lib64/libqminvapi.so:vendor/lib64/libqminvapi.so
 vendor/lib/libdiag.so
@@ -609,17 +609,17 @@ vendor/lib64/libsmemlog.so
 -app/fastdormancy/fastdormancy.apk:vendor/app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk:vendor/app/shutdownlistener/shutdownlistener.apk
 bin/irsc_util:vendor/bin/irsc_util
-bin/netmgrd:vendor/bin/netmgrd|80cda795a0c03b12152e3be6ce17c129f9d8ed5b
-bin/qmuxd:vendor/bin/qmuxd|17943aae2e1f91b1d98d817abae382de205b2c84
+vendor/bin/netmgrd|80cda795a0c03b12152e3be6ce17c129f9d8ed5b
+vendor/bin/qmuxd|17943aae2e1f91b1d98d817abae382de205b2c84
 bin/rfs_access:vendor/bin/rfs_access
 bin/rmt_storage:vendor/bin/rmt_storage
 bin/tftp_server:vendor/bin/tftp_server
 etc/data/dsi_config.xml:vendor/etc/data/dsi_config.xml
 etc/data/netmgr_config.xml:vendor/etc/data/netmgr_config.xml
 etc/data/qmi_config.xml:vendor/etc/data/qmi_config.xml
-etc/permissions/qcnvitems.xml:vendor/etc/permissions/qcnvitems.xml|f8e863461bfb2e7fc9a36a9fca108d7b51e5600d
-etc/permissions/qcrilhook.xml:vendor/etc/permissions/qcrilhook.xml|cf740b4339659e7a30cabcd1c2fe5066e69b8760
-etc/permissions/telephonyservice.xml:vendor/etc/permissions/telephonyservice.xml|ff2c9f3456ad73f97adb7ef314fe916fa9cbfb81
+vendor/etc/permissions/qcnvitems.xml|f8e863461bfb2e7fc9a36a9fca108d7b51e5600d
+vendor/etc/permissions/qcrilhook.xml|cf740b4339659e7a30cabcd1c2fe5066e69b8760
+vendor/etc/permissions/telephonyservice.xml|ff2c9f3456ad73f97adb7ef314fe916fa9cbfb81
 -framework/QtiTelephonyServicelibrary.jar:vendor/framework/QtiTelephonyServicelibrary.jar
 -framework/qcnvitems.jar:vendor/framework/qcnvitems.jar
 -framework/qcrilhook.jar:vendor/framework/qcrilhook.jar

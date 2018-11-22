@@ -215,7 +215,8 @@ TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
     /vendor/lib64/libizat_core.so|libshims_get_process_name.so \
-    /vendor/lib64/lib-imsvt.so|libshims_ims.so
+    /vendor/lib64/lib-imsvt.so|libshims_ims.so \
+    /vendor/lib/hw/camera.vendor.msm8992.so|libshim_camera.so
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
