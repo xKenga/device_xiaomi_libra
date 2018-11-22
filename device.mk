@@ -189,10 +189,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.libra
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.mokee.livedisplay@1.0-service-legacymm
-
 # OMX
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -227,7 +223,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-service-qti
+    android.hardware.power@1.1-service-qti
 
 # Seccomp
 PRODUCT_COPY_FILES += \
