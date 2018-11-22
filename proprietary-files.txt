@@ -53,7 +53,7 @@ vendor/lib64/liblistensoundmodel2.so
 
 # Bluetooth
 bin/port-bridge:vendor/bin/port-bridge
-bin/wcnss_filter:vendor/bin/wcnss_filter
+vendor/bin/wcnss_filter|65c276e8ed95b55d337534411add48806e034a84
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
