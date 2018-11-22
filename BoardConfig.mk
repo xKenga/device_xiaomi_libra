@@ -104,19 +104,22 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
-# Fix this up by examining /proc/mtd on a running device
-BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864 #64M
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864 #64M
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2013265920 #1920M
-BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184 #384M
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 27980184576 #26G
+# Partitions
+TARGET_COPY_OUT_VENDOR             := vendor
+BOARD_BOOTIMAGE_PARTITION_SIZE     := 67108864
+BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 402653184
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 2013265920
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 12469648896
+BOARD_VENDORIMAGE_PARTITION_SIZE   := 335544320
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_USERIMAGES_USE_EXT4 := true
-ifneq (,$(filter linux darwin, $(HOST_OS)))
 TARGET_USERIMAGES_USE_F2FS := true
-endif
-BOARD_FLASH_BLOCK_SIZE := 131072 #262144 #(BOARD_KERNEL_PAGESIZE * 64)
-
-TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_HW_DISK_ENCRYPTION := true
+TARGET_PER_MGR_ENABLED := true
+TARGET_EXFAT_DRIVER := exfat
 
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -192,8 +195,6 @@ WPA_SUPPLICANT_VERSION          := VER_0_8_X
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.full
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS := true
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_libra
@@ -211,10 +212,10 @@ BOARD_SEPOLICY_DIRS += \
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
-    /system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
-    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
-    /system/vendor/lib64/lib-imsvt.so|libshims_ims.so
+    /vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
+    /vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
+    /vendor/lib64/libizat_core.so|libshims_get_process_name.so \
+    /vendor/lib64/lib-imsvt.so|libshims_ims.so
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/libra/BoardConfigVendor.mk
