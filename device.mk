@@ -1,11 +1,8 @@
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/libra/libra-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-mokee
+    $(LOCAL_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
@@ -298,15 +295,6 @@ PRODUCT_COPY_FILES += \
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
-
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
-
-PRODUCT_NAME := full_libra
-PRODUCT_DEVICE := libra
-PRODUCT_MANUFACTURER := Xiaomi
-PRODUCT_MODEL := Mi-4c
 
 # Ramdisk
 PRODUCT_PACKAGES += \

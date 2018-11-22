@@ -1,0 +1,2 @@
+add_lunch_combo aosp_libra-userdebug
+add_lunch_combo aosp_libra-eng

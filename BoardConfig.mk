@@ -2,7 +2,7 @@ BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/libra
 
-TARGET_SPECIFIC_HEADER_PATH := device/xiaomi/libra/include
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8992
@@ -86,7 +86,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAS_QCA_BT_ROME := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/xiaomi/libra/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 QCOM_BT_USE_BTNV := true
 QCOM_BT_USE_SMD_TTY := true
 WCNSS_FILTER_USES_SIBS := true
@@ -95,7 +95,7 @@ WCNSS_FILTER_USES_SIBS := true
 TARGET_EXFAT_DRIVER := exfat
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/xiaomi/leo
+TARGET_KERNEL_SOURCE := kernel/xiaomi/libra
 TARGET_KERNEL_CONFIG := libra_user_defconfig
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
@@ -163,9 +163,6 @@ BOARD_USES_QCOM_HARDWARE := true
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
 
-# MK Hardware
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/mkhw
-
 # dt2w
 TARGET_TAP_TO_WAKE_NODE := "/sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input1/wake_gesture"
 
@@ -185,7 +182,7 @@ BOARD_HAS_QCOM_WLAN_SDK         := true
 BOARD_HOSTAPD_DRIVER            := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB       :=lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE               := qcwcn
-BOARD_WPA_SUPPLICANT_DRIVER :=  NL80211
+BOARD_WPA_SUPPLICANT_DRIVER     :=  NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
 TARGET_USES_WCNSS_CTRL          := true
 WIFI_DRIVER_MODULE_NAME         := "wlan"
@@ -213,15 +210,11 @@ TARGET_OTA_ASSERT_DEVICE := 4C,libra
 include device/qcom/sepolicy/sepolicy.mk
 include device/qcom/sepolicy/legacy-sepolicy.mk
 
-BOARD_SEPOLICY_DIRS += device/xiaomi/libra/sepolicy
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := /system/vendor/lib64/libril-qc-qmi-1.so|rild_socket.so:/system/vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so:/system/vendor/lib64/lib-imsvt.so|libshims_ims.so
-
-# TWRP Support
-ifeq ($(WITH_TWRP),true)
--include $(DEVICE_PATH)/twrp/twrp.mk
-endif
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/libra/BoardConfigVendor.mk
