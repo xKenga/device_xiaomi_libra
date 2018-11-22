@@ -293,3 +293,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc \
     init.qcom.post_boot.sh
+
+# Vendor properties
+-include $(LOCAL_PATH)/vendor_prop.mk

@@ -217,5 +217,8 @@ TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/libizat_core.so|libshims_get_process_name.so \
     /vendor/lib64/lib-imsvt.so|libshims_ims.so
 
+# Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/libra/BoardConfigVendor.mk
