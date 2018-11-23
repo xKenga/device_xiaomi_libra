@@ -21,9 +21,9 @@ ifeq ($(TARGET_DEVICE),libra)
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
 # WiFi symlinks
-$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wlan/qca_cld; \
+$(shell mkdir -p $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld; \
     ln -sf /data/misc/wifi/wlan_mac.bin \
-	    $(TARGET_OUT_ETC)/firmware/wlan/qca_cld/wlan_mac.bin)
+	    $(TARGET_OUT_VENDOR)/firmware/wlan/qca_cld/wlan_mac.bin)
 # END WiFi symlinks
 
 RFS_MSM_ADSP_SYMLINKS := $(TARGET_OUT_VENDOR)/rfs/msm/adsp/

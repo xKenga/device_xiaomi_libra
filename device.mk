@@ -132,6 +132,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl
 
+# Gralloc
+TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
+
 # GNSS HAL
 PRODUCT_PACKAGES += \
     libshims_get_process_name \
