@@ -122,8 +122,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     persist.debug.sf.statistics=1 \
     vidc.debug.level=1 \
-    vidc.enc.dcvs.extra-buff-count=2 \
-    persist.media.treble_omx=false
+    vidc.enc.dcvs.extra-buff-count=2
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
