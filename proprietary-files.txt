@@ -499,7 +499,6 @@ vendor/lib64/libperipheral_client.so
 
 # Qseecomm
 bin/qseecomd:vendor/bin/qseecomd
-vendor/bin/fidodaemon
 vendor/lib/libQSEEComAPI.so
 vendor/lib/libdrmfs.so
 vendor/lib/libdrmtime.so
