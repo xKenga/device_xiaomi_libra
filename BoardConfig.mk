@@ -197,6 +197,7 @@ WPA_SUPPLICANT_VERSION          := VER_0_8_X
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.full
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_libra
@@ -217,11 +218,13 @@ TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
     /vendor/lib64/libizat_core.so|libshims_get_process_name.so \
-    /vendor/lib64/lib-imsvt.so|libshims_ims.so \
     /vendor/lib/hw/camera.vendor.msm8992.so|libshim_camera.so
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
+# Vendor init
+TARGET_INIT_VENDOR_LIB := libinit_msm
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/libra/BoardConfigVendor.mk

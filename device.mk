@@ -137,10 +137,6 @@ PRODUCT_PACKAGES += \
     libshims_get_process_name \
     android.hardware.gnss@1.0-impl
 
-# IMS
-PRODUCT_PACKAGES += \
-    libshims_ims
-
 # Graphics
 PRODUCT_PACKAGES += \
     copybit.msm8992 \
@@ -160,10 +156,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
-
-# IMS
-PRODUCT_PACKAGES += \
-    ims-ext-common
 
 # Camera
 PRODUCT_PACKAGES += \

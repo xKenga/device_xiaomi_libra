@@ -161,7 +161,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Time services
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
-
-# Only for CMCC workarroud for an OOM issue
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.ims.disableUserAgent=1
