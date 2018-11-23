@@ -18,9 +18,12 @@
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
-# Inherit from those products. Most specific first.
+# Inherit 64-bit configs
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_l_mr1.mk)
 
 # Inherit some common PEX stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
