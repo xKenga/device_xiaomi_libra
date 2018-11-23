@@ -569,7 +569,7 @@ vendor/etc/permissions/telephonyservice.xml|ff2c9f3456ad73f97adb7ef314fe916fa9cb
 -framework/QtiTelephonyServicelibrary.jar:vendor/framework/QtiTelephonyServicelibrary.jar
 -framework/qcnvitems.jar:vendor/framework/qcnvitems.jar
 -framework/qcrilhook.jar:vendor/framework/qcrilhook.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:vendor/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/libconfigdb.so
 vendor/lib/liblqe.so
