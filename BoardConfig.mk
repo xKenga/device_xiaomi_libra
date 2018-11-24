@@ -8,8 +8,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 TARGET_BOARD_PLATFORM := msm8992
 TARGET_BOOTLOADER_BOARD_NAME := msm8992
 TARGET_NO_BOOTLOADER := true
-BOOTLOADER_PLATFORM := msm8994 # use msm8994 LK configuration
-TARGET_BOARD_PLATFORM_GPU := qcom-adreno418
+BOOTLOADER_PLATFORM := msm8994
 TARGET_BOARD_SUFFIX := _64
 
 # Arch
@@ -25,7 +24,6 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a53.a57
 TARGET_CPU_CORTEX_A53 := true
 
-TARGET_USES_64_BIT_BINDER := true
 TARGET_CPU_SMP := true
 
 # Graphics
@@ -47,12 +45,7 @@ HAVE_ADRENO_SOURCE:= false
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 BOARD_USES_OPENSSL_SYMBOLS := true
 
-USE_OPENGL_RENDERER := true
 BOARD_USE_LEGACY_UI := true
-
-# Keymaster
-TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-TARGET_PROVIDES_KEYMASTER := true
 
 # GPS
 TARGET_NO_RPC := true
@@ -99,8 +92,6 @@ BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
 BOARD_RAMDISK_OFFSET     := 0x01000000
-TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
@@ -180,7 +171,6 @@ PROTOBUF_SUPPORTED := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN             := true
-BOARD_HAS_QCOM_WLAN_SDK         := true
 BOARD_HOSTAPD_DRIVER            := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB       :=lib_driver_cmd_qcwcn
 BOARD_WLAN_DEVICE               := qcwcn
@@ -218,6 +208,7 @@ TARGET_LD_SHIM_LIBS := \
     /vendor/lib64/libril-qc-qmi-1.so|rild_socket.so \
     /vendor/lib/libmmcamera2_stats_algorithm.so|libshim_atomic.so \
     /vendor/lib64/libizat_core.so|libshims_get_process_name.so \
+    /vendor/lib64/liblowi_wifihal_nl.so|libshims_is_wifi_driver_loaded.so \
     /vendor/lib/hw/camera.vendor.msm8992.so|libshim_camera.so
 
 # Treble

@@ -116,17 +116,6 @@ PRODUCT_PACKAGES += \
     com.quicinc.cne \
     libcnefeatureconfig \
     services-ext
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8992 \
-    flp.conf \
-    gps.conf \
-    izat.conf \
-    lowi.conf \
-    quipc.conf \
-    sap.conf \
-    xtwifi.conf
     
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -135,10 +124,17 @@ PRODUCT_PACKAGES += \
 # Gralloc
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x02000000
 
-# GNSS HAL
+# GPS
 PRODUCT_PACKAGES += \
     libshims_get_process_name \
+    libshims_is_wifi_driver_loaded \
     android.hardware.gnss@1.0-impl
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
+    $(LOCAL_PATH)/configs/gps/gps.conf:$(TARGET_COPY_OUT_VENDOR)/etc/gps.conf \
+    $(LOCAL_PATH)/configs/gps/izat.conf:$(TARGET_COPY_OUT_VENDOR)/etc/izat.conf \
+    $(LOCAL_PATH)/configs/gps/sap.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sap.conf
 
 # Graphics
 PRODUCT_PACKAGES += \
@@ -232,7 +228,7 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensor_diag.cfg:system/etc/sensor_diag.cfg
+    $(LOCAL_PATH)/configs/sensor_diag.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/sensor_diag.cfg
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -260,11 +256,9 @@ PRODUCT_PACKAGES += \
     ipacm \
     ipacm-diag \
     IPACM_cfg.xml \
-    libqsap_sdk \
     libQWiFiSoftApCfg \
     libwpa_client \
     hostapd \
-    dhcpcd.conf \
     readmac \
     wificond \
     wpa_supplicant \
