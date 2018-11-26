@@ -19,9 +19,10 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     CameraWrapper.cpp
 
-LOCAL_STATIC_LIBRARIES := libbase libarect
+LOCAL_STATIC_LIBRARIES := libbase libarect android.hardware.camera.common@1.0-helper
 LOCAL_SHARED_LIBRARIES := \
-    libhardware liblog libutils libcutils libsensor libcamera_client \
+    $(common_libs) \
+    libhardware libutils libsensor libsensor \
     android.hidl.token@1.0-utils \
     android.hardware.graphics.bufferqueue@1.0
 

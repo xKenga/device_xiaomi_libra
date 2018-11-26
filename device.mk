@@ -185,6 +185,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
     android.hardware.drm@1.0-service \
+    android.hardware.media.omx@1.0-impl \
     libc2dcolorconvert \
     libdivxdrmdecrypt \
     libdrmclearkeyplugin \
@@ -249,6 +250,10 @@ PRODUCT_PACKAGES += \
 # Vibrator
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
+
+# VNDK
+PRODUCT_PACKAGES += \
+    libra-vndk-extra
 
 # Wifi
 PRODUCT_PACKAGES += \
